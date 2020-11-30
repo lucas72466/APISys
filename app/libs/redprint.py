@@ -3,7 +3,6 @@
 """
 @author : lucas
 @contact : lucas72466@gmail.com
-@created_time : 28/11/2020 23:16
 """
 
 
@@ -17,7 +16,7 @@ class RedPrint:
 
     def route(self, rule, **options):
         def decorator(f):
-            self.mound.append((f, rule, options))  # 先暂存到列表中， 当能够接触到blueprint时一起注册
+            self.mound.append((f, rule, options))  # 先暂存到列表中， 当能够接触到blueprint时一起注册到蓝图上
             return f
         return decorator
 
