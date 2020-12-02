@@ -23,7 +23,7 @@ def framework_error(e):
         error_code = 1007
         return APIException(msg, code, error_code)
     else:
-        if not app.configp['DEBUG']:
+        if not app.config['DEBUG']:
             return APIException()
         else:
             raise e
