@@ -36,3 +36,9 @@ class AuthFailed(APIException):
     code = 401
     error_code = 1005
     msg = 'authorization failed'
+
+
+class DeleteSuccess(APIException):
+    code = 202
+    error_code = -1
+    msg = "The user has been deleted"
