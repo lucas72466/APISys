@@ -42,3 +42,10 @@ class DeleteSuccess(APIException):
     code = 202
     error_code = -1
     msg = "The user has been deleted"
+
+
+class Forbidden(APIException):
+    code = 403
+    error_code = 1004
+    msg = "forbidden, not in scope"
+
