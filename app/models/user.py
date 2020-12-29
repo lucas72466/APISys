@@ -21,9 +21,6 @@ class User(Base):
     def keys(self):
         return 'id', 'email', 'nickname', 'auth'
 
-    def __getitem__(self, item):
-        return getattr(self, item)
-
     @property
     def password(self):
         return self._password

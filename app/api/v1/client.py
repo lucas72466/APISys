@@ -4,13 +4,12 @@
 @author : lucas
 @contact : lucas72466@gmail.com
 """
-from flask import request
 
-from app.libs.error_code import ClientTypeError, Success
+from app.libs.enums import ClientTypeEnum
+from app.libs.error_code import Success
 from app.libs.redprint import RedPrint
 from app.models.user import User
 from app.validatos.forms import ClientForm, UserEmailForm
-from app.libs.enums import ClientTypeEnum
 
 api = RedPrint('client')
 

@@ -18,7 +18,7 @@ api = RedPrint('token')
 @api.route('', methods=['POST'])
 def get_token():
     form = ClientForm().validate_for_api()
-    promise = {
+    promise = {  # 区分不同的用户类型
         ClientTypeEnum.USER_EMAIL: User.verify
     }
     identity = promise[ClientTypeEnum(form.type.data)](

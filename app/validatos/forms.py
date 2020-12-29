@@ -49,7 +49,5 @@ class UserEmailForm(ClientForm):
             raise ValidationError()
 
 
-
-
-
-
+class BookSearchForm(BaseForm):
+    q = StringField(validators=[DataRequired()])

@@ -7,28 +7,30 @@
 
 
 class BaseScope:
-    allow_api = []
-    allow_module = []
-    forbidden = []
+    allow_api = set()
+    allow_module = set()
+    forbidden = set()
 
     def __add__(self, other):
-        self.allow_api = self.allow_api + other.allow_api
-        self.allow_module = self.allow_module + other.allow_module
-        self.forbidden = self.forbidden + other.forbidden
+        self.allow_api |= other.allow_api
+        self.allow_module |= other.allow_module
+        self.forbidden |= other.forbidden
         return self
 
 
 class AdminScope(BaseScope):
-    allow_api = []
-    allow_module = ['v1.user']
+    allow_api = set()
+    allow_module = {'v1.user'}
 
 
 class UserScope(BaseScope):
-    allow_api = []
+    forbidden = {'v1.super_get_user'}
+
+    def __init__(self):
+        self + AdminScope()
 
 
 def is_in_scope(scope, endpoint):
-    gl = globals()
     scope = globals()[scope]()
     splits = endpoint.split('+')
     module_name = splits[0]
