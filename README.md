@@ -4,7 +4,7 @@ version = 0.05
 
 ### 项目结构
 
-![](E:\code\python\flask\APISys\structure.png)
+![](./src/structure.png)
 
 
 
